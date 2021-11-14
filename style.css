@@ -1,3 +1,18 @@
+/* VARIABLES */
+
+:root {
+    /*FONTS*/
+    --name-font: 'Fredericka the Great';
+    --main-font: 'Montserrat';
+    --content-font: 'Roboto';
+    --title-font: 'Josefin Sans';
+
+    /*COLORS*/
+    --background: #AF703B;
+    --foreground: #AF3B3B;
+    --font1: #321F0F;
+}
+
 /* BASE STYLES */
 
 * {
@@ -10,4 +25,93 @@ html {
     font-size: 62.5%;
     min-width: 320px;
     overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+
+}
+
+/* MAIN */
+main {
+
+}
+
+/* FOOTER */
+footer {
+    /* DISPLAY AND POSITION */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* DIMENSIONS */
+    height: 80px;
+    margin-top: 20px;
+
+    /* COLORS AND OTHER STYLES */
+    background-color: var(--foreground);
+    font-weight: bold;
+    color: var(--font1);
+    font-family: var(--main-font);
+    border: var(--background) solid 10px;
+}
+.social_media {
+
+}
+.social_media__link {
+    font-family: var(--content-font);
+    color: var(--font1);
+    font-size: 1.2rem;
+}
+.social_media__link:hover {
+    text-decoration: underline;
+}
+.copyright {
+    /* DISPLAY AND POSITION */
+    display: flex;
+    align-items: center;
+}
+.copyright__line-1 {
+    display: flex;
+    align-items: center;
+}
+.copyright span {
+    text-align: center;
+    align-self: center;
+    font-family: var(--content-font);
+    font-size: 1.2rem;
+    color: var(--font1);
+}
+.copyright span:first-child {
+    font-size: 1.6rem;
+}
+
+
+
+
+
+/******************************************************/
+/* MEDIA QUERIES */
+/******************************************************/
+
+
+
+
+
+/* DESKTOP */
+@media (min-width: 1024px) {
+    footer {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .social_media__link {
+        font-size: 1.6rem;
+    }
+    .copyright span:first-child {
+        font-size: 2rem;
+    }
+    .copyright span {
+        font-size: 1.6rem;
+    }
 }

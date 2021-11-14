@@ -5,22 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NBA App | Arnaldo Cisneros</title>
+    <meta name="keywords" content="Arnaldo, Jose, Cisneros, Zambrano, Frontend, Backend, Fullstack, Developer, Colombia, Freelancer, Brownie">
+    <meta name="author" content="Arnaldo Cisneros">
+    <meta name="description" content="This program extracts data on several professional NBA players, and given a positive integer supplied by the user, the program is capable of creating pairs of players, in such a way that their heights in inches add up to the number supplied by the user.">
+    <link rel="icon" href="https://res.cloudinary.com/arnaldo10cisne/image/upload/v1632007671/logo_small_icon_only_inverted_4_adm7mu.png">
+    <meta property="og:image" content="https://res.cloudinary.com/arnaldo10cisne/image/upload/v1632007671/logo_small_icon_only_inverted_4_adm7mu.png" />
     <link rel="stylesheet" href="./style.css">
+    <!-- FONTS IMPORT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- HEADER -->
     <header>
-
+        <nav>
+            <ul>
+                <li><a href="https://mach-eight.uc.r.appspot.com" target="_blank" rel="noopener noreferrer">RAW DATA</a></li>
+                <li><a href="https://www.arnaldocisneros.com/" target="_blank" rel="noopener noreferrer">About me</a></li>
+                <li><a href="#">About this project</a></li>
+            </ul>
+        </nav>
     </header>
 
     <!-- MAIN -->
     <main>
-        <h1>NBA App | Web edition</h1>
+        <div>
+            <h1>NBA App | Web edition</h1>
+            <p>Welcome to the NBA App - Web edition!</p>
+            <small>Please enter a positive integer</small>
+            <input id="textInput" type="text">
+            <input id="searchButton" type="button" value="Initiate search">
+        </div>
+        <div>
+            <div>
+                <p id="resultMessage">Waiting for user input</p>
+            </div>
+            <div id="resultsContainer">
+                
+            </div>
+        </div>
     </main>
 
     <!-- FOOTER -->
     <footer>
-
+        <div class="social_media">
+            <p><a class="social_media__link" href="https://www.instagram.com/arnaldo10cisne/" target="_blank" rel="noopener noreferrer">Instagram</a> | <a class="social_media__link" href="https://github.com/arnaldo10cisne" target="_blank" rel="noopener noreferrer">Github</a> | <a class="social_media__link" href="https://www.linkedin.com/in/arnaldo10cisne/" target="_blank" rel="noopener noreferrer">Linkedin</a></p>
+        </div>
+        <div  class="copyright">
+            <div class="copyright__line-1">
+                <span>&nbsp;©</span>
+                <span>&nbsp;COPYRIGHT 2021,&nbsp;</span>
+            </div>
+            <span class="copyright__line-2">&nbsp;ARNALDO CISNEROS&nbsp;</span>
+        </div>
     </footer>
 
     <script src="./js/script.js" type="module"></script>
