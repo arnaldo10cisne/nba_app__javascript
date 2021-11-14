@@ -13,6 +13,14 @@ e.searchButton.addEventListener('click', () => {
         f.printPairsInConsole(correctPairs, ACCESSDATA)
         f.createResultListInDOM(correctPairs, ACCESSDATA)
     } else {
-        alert('Input no valido')
+        alert('Invalid input. Please enter a positive integer bigger than 0')
     }
+})
+
+e.aboutThisProject.addEventListener('click', () => {
+    e.modal.style.display="block"
+})
+
+e.modalButton.addEventListener('click', () => {
+    e.modal.style.display="none"
 })

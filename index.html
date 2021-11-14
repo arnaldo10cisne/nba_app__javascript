@@ -9,7 +9,7 @@
     <meta name="author" content="Arnaldo Cisneros">
     <meta name="description" content="This program extracts data on several professional NBA players, and given a positive integer supplied by the user, the program is capable of creating pairs of players, in such a way that their heights in inches add up to the number supplied by the user.">
     <link rel="icon" href="https://res.cloudinary.com/arnaldo10cisne/image/upload/v1632007671/logo_small_icon_only_inverted_4_adm7mu.png">
-    <meta property="og:image" content="https://res.cloudinary.com/arnaldo10cisne/image/upload/v1632007671/logo_small_icon_only_inverted_4_adm7mu.png" />
+    <meta property="og:image" content="https://www.mcmorrowreports.com/content/uploads/2016/10/nba-logo-300x292.jpg" />
     <link rel="stylesheet" href="./style.css">
     <!-- FONTS IMPORT -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,31 +21,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal_background">
+            <div class="modal_box">
+                <p class="modal_text">
+                    Program created by Arnaldo Cisneros, as part of a technical test provided by Macheight. <br><br> This program extracts data on several professional NBA players, and given a positive integer supplied by the user, the program is capable of creating pairs of players, in such a way that their heights in inches add up to the number supplied by the user. The data is gathered from <a href="https://mach-eight.uc.r.appspot.com/" target="_blank" rel="noopener noreferrer">this source</a>
+                    <br><br> Developed in the city of Medellín, Colombia. November, 2021.
+                    <br><br>By the way, before you go, don't forget to check the <a href="https://github.com/arnaldo10cisne/nba_app__python/" target="_blank" rel="noopener noreferrer">PYTHON EDITION</a> of this same app!
+                </p>
+                <input id="modalButton" class="modal_button" type="button" value="Return to the App">
+            </div>
+        </div>
+    </div>
+
     <!-- HEADER -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="https://mach-eight.uc.r.appspot.com" target="_blank" rel="noopener noreferrer">RAW DATA</a></li>
-                <li><a href="https://www.arnaldocisneros.com/" target="_blank" rel="noopener noreferrer">About me</a></li>
-                <li><a href="#">About this project</a></li>
+        <nav class="header_nav">
+            <ul class="header_nav_ul">
+                <li class="header_nav_ul__item"><a class="header_nav_ul__item__link" href="https://mach-eight.uc.r.appspot.com" target="_blank" rel="noopener noreferrer">Raw data</a></li>
+                <li class="header_nav_ul__item"><a class="header_nav_ul__item__link" href="https://www.arnaldocisneros.com/" target="_blank" rel="noopener noreferrer">About me</a></li>
+                <li class="header_nav_ul__item"><a id="aboutThisProject" class="header_nav_ul__item__link" href="#">About this project</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- MAIN -->
     <main>
-        <div>
-            <h1>NBA App | Web edition</h1>
-            <p>Welcome to the NBA App - Web edition!</p>
-            <small>Please enter a positive integer</small>
-            <input id="textInput" type="text">
-            <input id="searchButton" type="button" value="Initiate search">
+        <div class="main_information">
+            <img class="main_logo" src="https://seeklogo.com/images/N/nba-logo-0895F6D8B8-seeklogo.com.png" alt="Nba logo">
+            <h1 class="main_h1">Welcome to the NBA App</h1>
+            <p class="main_description">Welcome to the NBA App - Web edition! This program extracts data on several professional NBA players, and when you give it a positive integer, the program is capable of creating pairs of players, in such a way that their heights in inches add up to the number supplied by the user. Give it a try!</p>
+            <input id="textInput" class="main_searchBar" type="text" placeholder="Number">
+            <input id="searchButton" class="main_searchButton" type="button" value="FIND PAIRS">
         </div>
-        <div>
+        <div class="main_results">
             <div>
-                <p id="resultMessage">Waiting for user input</p>
+                <p id="resultMessage" class="main_results_message">Waiting for user input</p>
             </div>
-            <div id="resultsContainer">
+            <div id="resultsContainer" class="main_results_container">
                 
             </div>
         </div>

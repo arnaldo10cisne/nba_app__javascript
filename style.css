@@ -8,9 +8,10 @@
     --title-font: 'Josefin Sans';
 
     /*COLORS*/
-    --background: #AF703B;
-    --foreground: #AF3B3B;
-    --font1: #321F0F;
+    --background: rgb(219, 219, 219);
+    --foreground: #1d4289;
+    --main-red: #c8112d;
+    --font1: rgb(216, 216, 216);
 }
 
 /* BASE STYLES */
@@ -27,16 +28,200 @@ html {
     overflow-x: hidden;
 }
 
+a{
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+}
+.modal_background{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.623);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal_box{
+    width: 90%;
+    height: 70%;
+    background-color: rgb(209, 209, 209);
+    border-radius: 5px;
+    border: solid 5px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.modal_text{
+    width: 80%;
+    font-size: 1.3rem;
+    font-family: var(--content-font);
+    text-align: justify;
+    font-weight: 700;
+    
+}
+.modal_button{
+    margin-top: 20px;
+    font-size: 2rem;
+    padding: 10px 15px;
+    color: white;
+    background-color: var(--foreground);
+}
+
 /* HEADER */
 header {
+    width: 100vw;
+}
+.header_nav{
+    width: 100%;
+}
+.header_nav_ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(78, 78, 78);
+    padding: 15px 0;
+}
+.header_nav_ul__item {
 
+}
+.header_nav_ul__item__link {
+    font-size: 1.2rem;
+    color: white;
+    font-family: var(--main-font);
+    font-weight: 600;
+}
+.header_nav_ul__item__link:hover {
+    text-decoration: underline;
 }
 
 /* MAIN */
 main {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background);
+    min-height: 85vh;
 
 }
-
+.main_information {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+}
+.main_logo {
+    width: 50%;
+    margin: 10px auto;
+}
+.main_h1 {
+    /* width: 100%; */
+    text-align: center;
+    font-family: var(--main-font);
+    font-size: 2rem;
+    margin: 10px;
+    color: var(--foreground);
+}
+.main_description {
+    width: 90%;
+    margin: 0 auto 5px auto;
+    text-align: justify;
+    font-size: 1.2rem;
+    font-family: var(--title-font);
+    color: black;
+    font-weight: 600;
+}
+.main_instruction {
+    font-size: 1.2rem;
+    margin-top: 5px;
+    font-family: var(--main-font);
+    font-weight: 600;
+    color: black;
+}
+.main_searchBar {
+    width: 80%;
+    padding: 4px;
+    text-align: center;
+    outline: none;
+    border-radius: 10px;
+    border: none;
+    font-size: 2.5rem;
+    font-family: var(--main-font);
+    font-weight: 800;
+    margin-top: 3px;
+}
+.main_searchButton {
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: var(--main-red);
+    border: solid 2px #ac0e26;
+    color: white;
+    font-family: var(--main-font);
+}
+.main_searchButton:hover {
+    background-color: #ac0e26;
+}
+.main_searchButton:active {
+    background-color: #8b0d20;
+}
+.main_results {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 2px solid var(--main-red);
+}
+.main_results_message{
+    font-size: 1.4rem;
+    font-family: var(--content-font);
+    text-align: center;
+    margin: 0 15px;
+}
+.main_results_container {
+    width: 95%;
+    padding: 5px 0;
+    background-color: var(--main-red);
+    border-radius: 5px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+.result_cell {
+    background-color: var(--foreground);
+    width: 90%;
+    margin: 5px auto;
+    padding: 5px;
+    border: 2px solid var(--background);
+    color: white;
+}
+.result_number{
+    font-family: var(--content-font);
+    text-decoration: underline;
+}
+.result_data{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 5px;
+}
+.player_name {
+    font-family: var(--content-font);
+    font-size: 1.2rem;
+}
+.player_height{
+    font-family: var(--content-font);
+    font-size: 1rem;
+    font-style: italic;
+}
 /* FOOTER */
 footer {
     /* DISPLAY AND POSITION */
@@ -47,7 +232,6 @@ footer {
 
     /* DIMENSIONS */
     height: 80px;
-    margin-top: 20px;
 
     /* COLORS AND OTHER STYLES */
     background-color: var(--foreground);
@@ -99,6 +283,32 @@ footer {
 
 
 
+/* TABLET */
+@media (min-width: 760px) {
+    .header_nav_ul__item__link{
+        font-size: 1.6rem;
+    }
+    .main_logo{
+        width: 20%;
+    }
+    .main_description{
+        width: 60%;
+        font-size: 1.4rem;
+    }
+    .main_results{
+        width: 70%;
+    }
+    .result_number{
+        font-size: 1.4rem;
+    }
+    .player_name{
+        font-size: 1.6rem;
+    }
+    .player_height{
+        font-size: 1.4rem;
+    }
+}
+
 /* DESKTOP */
 @media (min-width: 1024px) {
     footer {
@@ -113,5 +323,61 @@ footer {
     }
     .copyright span {
         font-size: 1.6rem;
+    }
+    .modal_box{
+        width: 50%;
+    }
+    .modal_text{
+        width: 50%;
+        font-size: 1.6rem;
+    }
+}
+
+/* BIG DESKTOP */
+@media (min-width: 1600px) {
+    .header_nav_ul__item__link{
+        font-size: 3rem;
+    }
+    .main_h1{
+        font-size: 5rem;
+    }
+    .main_description{
+        font-size: 3rem;
+        width: 60;
+    }
+    .main_searchBar{
+        font-size: 5rem;
+        width: 50%;
+    }
+    .main_searchButton{
+        font-size: 4rem;
+    }
+    .main_results_message{
+        font-size: 3rem;
+    }
+    .main_results_container{
+        max-height: 1000px;
+    }
+    .result_number{
+        font-size: 3rem;
+    }
+    .player_name{
+        font-size: 4rem;
+    }
+    .player_height{
+        font-size: 3rem;
+    }
+    footer{
+        font-size: 3rem;
+        padding: 50px;
+    }
+    .social_media__link {
+        font-size: 3rem;
+    }
+    .copyright span:first-child {
+        font-size: 3.4rem;
+    }
+    .copyright span {
+        font-size: 3rem;
     }
 }

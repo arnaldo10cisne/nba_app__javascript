@@ -46,29 +46,41 @@ export const orderArray = arrayToOrder => {
 
 
 export const getAccessData = async () => {
-    const response = await fetch(e.DATA_URL)
-    const rawData = await response.json()
-    let arrayData = rawData["values"]
-    arrayData = orderArray(arrayData)
-    //console.log(arrayData);
-    return arrayData
+    let response
+    try {
+        response = await fetch(e.DATA_URL)
+        const rawData = await response.json()
+        let arrayData = rawData["values"]
+        arrayData = orderArray(arrayData)
+        return arrayData
+    } catch (error) {
+        console.error(error)
+        e.resultMessage.innerHTML = `<b>An error occurred while getting the information from the URL. Please try again at a later time</b>`
+        e.searchButton.style.display = "none"
+        e.textInput.style.display = "none"
+    }
 }
 
 
 export const validateInput = input => {
-    if (isNaN(input)) {
+    if (input == "") {
         return false
     } else {
-        if (Number.isInteger(input)) {
-            if (input >= 0) {
-                return true
+        if (isNaN(input)) {
+            return false
+        } else {
+            if (Number.isInteger(input)) {
+                if (input >= 0) {
+                    return true
+                } else {
+                    return false
+                }
             } else {
                 return false
             }
-        } else {
-            return false
         }
     }
+    
 }
 
 
@@ -153,11 +165,52 @@ export const searchPairs = (userInput, listOfPlayers) => {
 export const printPairsInConsole = (arrayOfPairs, completeData) => {
     
     console.clear()
+
+    if (arrayOfPairs.length == 0) {
+        e.resultMessage.innerHTML = "No matches found"
+        console.log("No matches found");
+    } else {
+        console.log(`Oh, I can see that you want to check the console output, right?\nNo worries, there you go\n\nFinding two NBA players whose heights add up to ${Number(completeData[arrayOfPairs[0][0]]["h_in"]) + Number(completeData[arrayOfPairs[0][1]]["h_in"])} inches\n\nRESULTS:`)
     
-    console.log(`Oh, I can see that you want to check the console output, right?\nNo worries, there you go\n\nFinding two NBA players whose heights add up to ${Number(completeData[arrayOfPairs[0][0]]["h_in"]) + Number(completeData[arrayOfPairs[0][1]]["h_in"])} inches\n\nRESULTS:`)
-    
-    for (let index = 0; index < arrayOfPairs.length; index++) {
-        const pair = arrayOfPairs[index];
-        console.log(`Pair ${index+1}: ${completeData[pair[0]]["first_name"]} ${completeData[pair[0]]["last_name"]} (${completeData[pair[0]]["h_in"]} inches) | ${completeData[pair[1]]["first_name"]} ${completeData[pair[1]]["last_name"]} (${completeData[pair[1]]["h_in"]} inches)`)
+        for (let index = 0; index < arrayOfPairs.length; index++) {
+            const pair = arrayOfPairs[index];
+            console.log(`Pair ${index+1}: ${completeData[pair[0]]["first_name"]} ${completeData[pair[0]]["last_name"]} (${completeData[pair[0]]["h_in"]} inches) | ${completeData[pair[1]]["first_name"]} ${completeData[pair[1]]["last_name"]} (${completeData[pair[1]]["h_in"]} inches)`)
+        }
     }
+
+}
+
+
+export const createResultListInDOM = (correctPairs, ACCESSDATA) => {
+
+    e.resultsContainer.innerHTML = ""
+    if (correctPairs.length == 0) {
+        e.resultMessage.innerHTML = `Finding two NBA players whose heights add up to ${e.textInput.value} inches<br><b>No matches found</b>`
+    } else {
+        e.resultMessage.innerHTML = `Finding two NBA players whose heights add up to ${e.textInput.value} inches<br>Showing <b>${correctPairs.length}</b> results: `
+        e.resultsContainer.innerHTML = createResultCells(correctPairs, ACCESSDATA)
+    }
+
+}
+
+
+export const createResultCells = (correctPairs, completeData) => {
+    let content = ""
+    for (let index = 0; index < correctPairs.length; index++) {
+        const pair = correctPairs[index];
+        content += `<div class="result_cell">
+        <p class="result_number">Result <b>${index+1}</b></p>
+        <div class="result_data">
+            <div class="result_player">
+                <p class="player_name">${completeData[pair[0]]["first_name"]} ${completeData[pair[0]]["last_name"]}</p>
+                <p class="player_height">Height: ${completeData[pair[0]]["h_in"]} inches</p>
+            </div>
+            <div class="result_player">
+                <p class="player_name">${completeData[pair[1]]["first_name"]} ${completeData[pair[1]]["last_name"]}</p>
+                <p class="player_height">Height: ${completeData[pair[1]]["h_in"]} inches</p>
+            </div>
+        </div>
+    </div>`
+    }
+    return content
 }
